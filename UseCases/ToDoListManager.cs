@@ -11,12 +11,12 @@ namespace UseCases
         }
         public IEnumerable<ToDoItem> getTodoItems()
         {
-            return repository.GetTodoItems();
+            return repository.GetItems();
         }
 
         public void AddTodoItem(ToDoItem item)
         {
-            repository.AddTodoItem(item);
+            repository.Add(item);
         }
 
         public void MarkComplete(int id)
@@ -25,10 +25,20 @@ namespace UseCases
             if (item != null)
             {
                 item.IsCompleted = true;
+                repository.Update(item);
                 
             }
-            repository.Update(item);
 
+        }
+
+        public void Delete(int id)
+        {
+            repository.Delete(id);
+        }
+
+        public static void AddToDoItem(ToDoItem todoList)
+        {
+            throw new NotImplementedException();
         }
     }
 }
