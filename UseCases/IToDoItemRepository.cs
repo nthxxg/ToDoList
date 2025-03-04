@@ -9,9 +9,10 @@ namespace UseCases
 {
     public interface IToDoItemRepository
     {
-        void AddTodoItem(ToDoItem item);
-        ToDoItem GetById(int id);
-        IEnumerable<ToDoItem> GetTodoItems();
-        void Update(object item);
+        void Add(ToDoItem item);
+        void Delete(int id);
+        ToDoItem? GetById(int id);
+        IEnumerable<ToDoItem> GetItems();
+        void Update(ToDoItem item);
     }
 }
